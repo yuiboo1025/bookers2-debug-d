@@ -17,7 +17,7 @@ class RelationshipsController < ApplicationController
   end
   #フォロワー一覧
   def followers
-    user = User.find(params[:id])
+    user = User.find(params[:userid])
     @users = user.followers
   end
 end
