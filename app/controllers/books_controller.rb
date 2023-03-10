@@ -9,7 +9,16 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:old]
+      @books = Book.old
+    elsif params[:rate_count]
+      @books = Book.rate_count
+    else
+      @books = Book.all
+    end
+    
     @book = Book.new
   end
 
